@@ -6,10 +6,13 @@ import static java.lang.Thread.sleep;
 public class TechnicalSupport {
     private ConcurrentLinkedQueue<Call> arrayCall = new ConcurrentLinkedQueue<>();
     private final AtomicInteger timeCounter = new AtomicInteger(1);
+    static final int TIME_ADDING = 1000;
+    static final int TIME_CALLING = 3000;
+    static final int LIMIT_CALLS = 10;
+    static final int WORKING_HOURS = 2;
 
 
     public void getCall() {
-        final int TIME_CALLING = 3000;
         Call n;
         while ((n = arrayCall.poll()) != null) {
             System.out.println(n + " - accepted the challenge " + Thread.currentThread().getName());
@@ -22,10 +25,6 @@ public class TechnicalSupport {
     }
 
     public void addingCalls() {
-        final int TIME_ADDING = 1000;
-        final int LIMIT_CALLS = 10;
-        final int WORKING_HOURS = 2;
-
         while (timeCounter.get() <= WORKING_HOURS * LIMIT_CALLS) {
             for (int i = 0; i < LIMIT_CALLS; i++) {
                 arrayCall.add(new Call(i + timeCounter.get()));

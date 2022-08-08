@@ -6,10 +6,10 @@ import static java.lang.Thread.sleep;
 public class TechnicalSupport {
     private ConcurrentLinkedQueue<Call> arrayCall = new ConcurrentLinkedQueue<>();
     private final AtomicInteger timeCounter = new AtomicInteger(1);
-    static final int TIME_ADDING = 1000;
-    static final int TIME_CALLING = 3000;
-    static final int LIMIT_CALLS = 10;
-    static final int WORKING_HOURS = 2;
+    private static final int TIME_ADDING = 1000;
+    private static final int TIME_CALLING = 3000;
+    private static final int LIMIT_CALLS = 10;
+    private static final int WORKING_HOURS = 2;
 
 
     public void getCall() {
